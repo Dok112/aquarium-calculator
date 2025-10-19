@@ -16,3 +16,5 @@ while (num2<=20) {
   console.log(num2);
   num2++
 }
+
+// кое как понял 
