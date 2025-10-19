@@ -1,22 +1,18 @@
-const length = 60;
-const width = 40;
-const height = 40;
-
-console.log("Длина:", length);
-console.log("Ширина:", width);
-console.log("Высота:", height);
-
-function  calculateVolume(length, width, height) {
-  return  length * width * height;
+let num = 8
+let x = 1 
+while (x<=num) {
+  if (x === num) break;
+  console.log(x);
+  x++
 }
 
-console.log("Объем 1", calculateVolume(5, 2, 3));
-console.log("Объем 2", calculateVolume(10, 4, 8));
-console.log("Объем 2", calculateVolume(length, width, height));
+let num2 = 1
 
-function checkEvenOdd(x) {
-  return x % 2 ===0;
+while (num2<=20) {
+  if (num2 % 2 === 0)  {
+    num2++
+    continue;
+  }
+  console.log(num2);
+  num2++
 }
-
-console.log(checkEvenOdd(13));
-
