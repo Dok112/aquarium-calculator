@@ -1,45 +1,21 @@
-let length = 60;
-let width = 40;
-let height = 40;
+let form = document.getElementById("aquariumForm");
 
-
-function calculateVolume (length, width, height) {
-  if(length <= 0 || width <= 0 || height <= 0) {
-    console.log("Ошибка, число должно быть больше 0");
-    return
-  } 
-
-  else if(typeof length !== "number" || typeof width !== "number" || typeof height !== "number") {
-    console.log("Ошибка, не число!");
-    return
-  }
-
-  else {
+form.onsubmit = function() {
+    // 1. Получаем значения из полей формы и преобразуем в числа
+    let length = Number(document.getElementById("length").value);
+    let width = Number(document.getElementById("width").value);
+    let height = Number(document.getElementById("height").value);
+    let resultDiv = document.getElementById("result");
+    
+    // 2. Проверяем валидность (как в твоей функции)
+    if(length <= 0 || width <= 0 || height <= 0) {
+        resultDiv.innerHTML = "Ошибка: числа должны быть больше 0";
+        return false;
+    }
+    
+    // 3. Считаем и выводим
     let volume = length * width * height;
-    console.log("Объём аквариума: " + volume);
-    return volume
-
-  }
-}
-calculateVolume(length, width, height);
-
-for (let i =0; i < 3; i++) {
-  if (i === 0 ) {
-     length = 20; width = 30; height = 25;
-    calculateVolume(length, width, height);
-    console.log("Аквариум " + (i + 1) + " рассчитан");
+    resultDiv.innerHTML = "Объем аквариума: " + volume + " см³";
     
-  } else if(i === 1) {
-     length = 30; width = 40; height = 35;
-    calculateVolume(length, width, height);
-    console.log("Аквариум " + (i + 1) + " рассчитан");
-    
-  }
-    else if (i === 2) {
-     length = 45; width = 68; height = 57;
-      calculateVolume(length, width, height);
-      console.log("Аквариум " + (i + 1) + " рассчитан");
-
-  }
-  console.log("Все аквариумы рассчитаны.");
-}
+    return false;
+};
